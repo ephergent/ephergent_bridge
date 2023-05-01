@@ -1,0 +1,105 @@
+<!-- templates/base.html -->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>The Ivory Bridge</title>
+
+    <!-- Bulma Import -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css">
+
+    <!-- Bulma Social Sharing Import -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@2/css/all.min.css" />
+
+    <!-- favicon link -->
+    <!-- <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}"> -->
+
+    <!--Font Awesome-->
+    <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+            integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+            crossorigin="anonymous"
+    >
+
+</head>
+
+<body>
+
+    <section class="hero is-info is-fullheight">
+        <div class="hero-head">
+        </div>
+
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <!-- messages from FLask -->
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <div class="notification is-link is-light">
+                <button class="delete"></button>
+                  {{ messages[0] }}
+                </div>
+                {% endif %}
+            {% endwith %}
+
+               {% block content %}
+                    <!-- Flask content gets inserted here -->
+               {% endblock %}
+            </div>
+        </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="content has-text-centered">
+      <p>
+        <img src="{{ url_for('static', filename='img/logo.png') }}" style="width:10%;">
+      </p>
+    <p>
+      <strong>The Ivory Bridge </strong> designed by <a href="https://funinternetthings.com/">funinternetthings.com</a>
+    </p>
+
+  </div>
+</footer>
+
+<!-- JavaScript to make burger menu work -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const $nbBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+        if ($nbBurgers.length < 1) {
+            return;
+        }
+        $nbBurgers.forEach( el => {
+            el.addEventListener('click', () => {
+                const target = el.dataset.target;
+                const $target = document.getElementById(target);
+                el.classList.toggle('is-active');
+                $target.classList.toggle('is-active');
+            });
+        });
+    });
+</script>
+
+<!--    JavaScript to delete notifications. -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+  (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+    const $notification = $delete.parentNode;
+
+    $delete.addEventListener('click', () => {
+      $notification.parentNode.removeChild($notification);
+    });
+  });
+});
+</script>
+
+</body>
+
+</html>

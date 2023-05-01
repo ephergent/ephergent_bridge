@@ -1,0 +1,25 @@
+# Basic Flask stuff
+export FLASK_APP=run.py
+export FLASK_CONFIG=development
+export FLASK_DEBUG=True
+export CSRF_SESSION_KEY=YOUR_SECRET
+export SECRET_KEY=YOUR_SECRET
+export SALTY_SECRET=YOUR_SECRET
+export APP_KEY=YOUR_SECRET
+# DEBUG, INFO
+export LOGGING_LEVEL=DEBUG
+
+# Mastodon "Your access token"
+#### PROD
+#export ACCESS_TOKEN=YOUR_SECRET
+#export MASTODON_INSTANCE='https://www.mastodon.host/'
+
+#### DEV
+export ACCESS_TOKEN=YOUR_SECRET
+export MASTODON_INSTANCE='https://www.mastodon.host/'
+
+# Twitter Oauth keys
+export CONSUMER_KEY='YOUR_SECRET'
+export CONSUMER_SECRET='YOUR_SECRET'
+export OAUTH_TOKEN='YOUR_SECRET'
+export OAUTH_TOKEN_SECRET='YOUR_SECRET'
