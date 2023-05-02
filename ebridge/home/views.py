@@ -95,13 +95,20 @@ def webhook():
 
     # send post to mastodon
     logging.debug("Sending post to Mastodon")
-    toot = f"{parsed_post['title']} {hashtags} {parsed_post['url']}"
+    toot = f"{parsed_post['title']}  {hashtags}  {parsed_post['url']}"
     # print(f'toot Length: {len(toot)}')
     logging.debug(toot)
     # Send it to Mastodon
     sent_toot = send_toot(status=toot, media_id=media_id)
     logging.debug(sent_toot)
     # Send it to Twitter
-    sent_tweet = send_tweet(status=toot)
+    tweet = f"""{parsed_post['title']}  
+    
+    {hashtags}
+    
+    {parsed_post['url']} 
+    eb
+    """
+    sent_tweet = send_tweet(status=tweet)
     logging.debug(sent_tweet)
     return "Toot Sent"
