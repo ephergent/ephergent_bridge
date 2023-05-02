@@ -5,6 +5,7 @@ import os
 import requests
 # Local imports
 from ebridge.utils.toot_utils import send_toot, send_media, make_hashtag
+from ebridge.utils.twit_it import send_tweet
 
 logger = logging.getLogger(__name__)
 
@@ -100,4 +101,7 @@ def webhook():
     # Send it to Mastodon
     sent_toot = send_toot(status=toot, media_id=media_id)
     logging.debug(sent_toot)
+    # Send it to Twitter
+    sent_tweet = send_tweet(status=toot)
+    logging.debug(sent_tweet)
     return "Toot Sent"
