@@ -17,9 +17,3 @@ export LOGGING_LEVEL=DEBUG
 #### DEV
 export ACCESS_TOKEN=YOUR_SECRET
 export MASTODON_INSTANCE='https://www.mastodon.host/'
-
-# Twitter Oauth keys
-export CONSUMER_KEY='YOUR_SECRET'
-export CONSUMER_SECRET='YOUR_SECRET'
-export OAUTH_TOKEN='YOUR_SECRET'
-export OAUTH_TOKEN_SECRET='YOUR_SECRET'
