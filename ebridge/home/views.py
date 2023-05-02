@@ -102,7 +102,7 @@ def webhook():
     sent_toot = send_toot(status=toot, media_id=media_id)
     logging.debug(sent_toot)
     # Send it to Twitter
-    tweet = parsed_post['title'] + "\n" + hashtags + "\n" + parsed_post['url']
+    tweet = post_data['title'] + "\n" + post_data['feature_image'] + "\n" + post_data['url']
     sent_tweet = send_tweet(status=tweet)
     logging.debug(sent_tweet)
     return "Toot Sent"
