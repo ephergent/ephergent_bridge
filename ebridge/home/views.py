@@ -5,6 +5,7 @@ import os
 import requests
 # Local imports
 from ebridge.utils.toot_utils import send_toot, send_media, make_hashtag
+from ebridge.utils.reddit_utils import post_link
 
 logger = logging.getLogger(__name__)
 
@@ -98,6 +99,10 @@ def webhook():
     # print(f'toot Length: {len(toot)}')
     logging.debug(toot)
     # Send it to Mastodon
+    # TODO add try/except for post to Mastodon
     sent_toot = send_toot(status=toot, media_id=media_id)
     logging.debug(sent_toot)
-    return "Toot Sent"
+    # Send to Ephergent Reddit
+    # TODO add try/except for post to reddit
+    post_link(title=parsed_post['title'], url=parsed_post['url'])
+    return "Social Media Sent"

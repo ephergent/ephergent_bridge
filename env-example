@@ -17,3 +17,11 @@ export LOGGING_LEVEL=DEBUG
 #### DEV
 export ACCESS_TOKEN=YOUR_SECRET
 export MASTODON_INSTANCE='https://www.mastodon.host/'
+
+# Reddit API info
+export REDDIT_SUBREDDIT='your subreddit'
+export REDDIT_CLIENT_ID='YOUR_SECRET'
+export REDDIT_CLIENT_SECRET='YOUR_SECRET'
+export REDDIT_USER_AGENT='your blog v0.1 by /u/username'
+export REDDIT_USERNAME='your user'
+export REDDIT_PASSWORD='YOUR_SECRET'
