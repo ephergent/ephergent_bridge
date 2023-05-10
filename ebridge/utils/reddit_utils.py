@@ -21,6 +21,7 @@ reddit = praw.Reddit(
     user_agent=REDDIT_USER_AGENT,
     username=REDDIT_USERNAME
 )
+logger.info(reddit)
 
 
 def post_link(title=None, url=None):
